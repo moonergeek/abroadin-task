@@ -5,7 +5,7 @@ import Register from "../Pages/Register";
 import NotLogged from "../Pages/NotLogged";
 import NotFound from "../Pages/NotFound";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -17,6 +17,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
