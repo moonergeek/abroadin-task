@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from "../../Core/schema/schema";
+import { loginSchema } from "../../core/schema/schema";
 
 const Login = () => {
   interface IFormInputs {
