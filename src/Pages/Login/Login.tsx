@@ -1,26 +1,48 @@
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "../../Core/schema/schema";
+
 const Login = () => {
+  interface IFormInputs {
+    email: string;
+    password: string;
+  }
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInputs>({
+    resolver: yupResolver(loginSchema),
+  });
+
+  const onSubmit = (data: IFormInputs) => console.log(data);
+
   return (
     <div className="container mt-4">
       <h3 className="fw-bold mb-4">Login Page</h3>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group mb-3">
           <label htmlFor="email">Email address</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="email"
-            aria-describedby="emailHelp"
             placeholder="Enter email"
+            {...register("email")}
           />
+          <p className="text-danger mt-2">{errors.email?.message}</p>
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="pass">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             className="form-control"
-            id="pass"
+            id="password"
             placeholder="Password"
+            {...register("password")}
           />
+          <p className="text-danger mt-2">{errors.password?.message}</p>
         </div>
 
         <div className="form-check mb-3">
