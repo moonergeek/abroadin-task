@@ -1,25 +1,18 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../core/schema/schema";
+import { IRegisterFormInputs } from "../../core/interface/interface";
 
 const Register = () => {
-  interface IFormInputs {
-    fullname: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    number: number;
-  }
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInputs>({
+  } = useForm<IRegisterFormInputs>({
     resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = (data: IFormInputs) => console.log(data);
+  const onSubmit = (data: IRegisterFormInputs) => console.log(data);
 
   return (
     <div className="container mt-4">
