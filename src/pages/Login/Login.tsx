@@ -41,13 +41,6 @@ const Login = () => {
           <p className="text-danger mt-2">{errors.password?.message}</p>
         </div>
 
-        <div className="form-check mb-3">
-          <input type="checkbox" className="form-check-input" id="check" />
-          <label className="form-check-label" htmlFor="check">
-            Check me out
-          </label>
-        </div>
-
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
