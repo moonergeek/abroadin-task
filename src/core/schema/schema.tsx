@@ -18,3 +18,10 @@ export const registerSchema = yup.object().shape({
     .required(),
   number: yup.string(),
 });
+
+export const messageSchema = yup
+  .object()
+  .shape({
+    message: yup.string(),
+  })
+  .required();

@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../core/schema/schema";
 import { ILoginFormInputs } from "../../core/interface/interface";
+import { useDispatch } from "react-redux";
+import { login } from "../../core/redux/user";
 
 const Login = () => {
   const {
@@ -12,7 +14,10 @@ const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = (data: ILoginFormInputs) => console.log(data);
+  const dispatch = useDispatch();
+
+  const onSubmit = (data: ILoginFormInputs) =>
+    dispatch(login({ email: data.email, password: data.password }));
 
   return (
     <div className="container mt-4">

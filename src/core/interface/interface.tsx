@@ -10,3 +10,7 @@ export interface IRegisterFormInputs {
   confirmPassword: string;
   number: number;
 }
+
+export interface IChatFormInputs {
+  message: string;
+}
