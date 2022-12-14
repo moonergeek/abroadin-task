@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { registerSchema } from "../../core/schema/schema";
 import { IRegisterFormInputs } from "../../core/interface/interface";
 
@@ -12,7 +14,11 @@ const Register = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = (data: IRegisterFormInputs) => console.log(data);
+  const navigate = useNavigate();
+
+  const onSubmit = () => {
+    navigate("/login");
+  };
 
   return (
     <div className="container mt-4">

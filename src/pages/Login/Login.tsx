@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import { loginSchema } from "../../core/schema/schema";
 import { ILoginFormInputs } from "../../core/interface/interface";
-import { useDispatch } from "react-redux";
 import { login } from "../../core/redux/user";
+
 
 const Login = () => {
   const {
@@ -15,9 +18,12 @@ const Login = () => {
   });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const onSubmit = (data: ILoginFormInputs) =>
+  const onSubmit = (data: ILoginFormInputs) => {
     dispatch(login({ email: data.email, password: data.password }));
+    navigate("/");
+  };
 
   return (
     <div className="container mt-4">

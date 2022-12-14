@@ -4,14 +4,14 @@ const initialStateValue = { email: "", password: "" };
 
 export const userSlice = createSlice({
   name: "user",
-  initialState: { value: initialStateValue },
+  initialState: initialStateValue,
   reducers: {
-    login: (state, action) => {
-      state.value = action.payload;
+    login(state, action): any {
+      return action.payload;
     },
 
-    logout: (state) => {
-      state.value = initialStateValue;
+    logout(): any {
+      return initialStateValue;
     },
   },
 });
