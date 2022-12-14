@@ -7,8 +7,10 @@ const Messages = () => {
   return (
     <main className="d-flex flex-column mt-4">
       {message.map((item: string, index: string) => (
-        <div key={index} className="alert alert-dark" role="alert">
-          <h6>{user.email}</h6>
+        <div key={index} className="alert alert-dark d-flex flex-column">
+          <h6 style={{ width: "30%" }} className="bg-warning p-2 rounded">
+            {user.email}
+          </h6>
           {item}
         </div>
       ))}
